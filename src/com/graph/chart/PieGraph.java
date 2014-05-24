@@ -117,7 +117,13 @@ public class PieGraph extends View {
                     (int) (midY - radius),
                     (int) (midX + radius),
                     (int) (midY + radius));
-            canvas.drawPath(p, mPaint);
+
+            if(currentSweep >= 360){
+                // 圆形
+                canvas.drawCircle(midX, midX, radius, mPaint);
+            }else{
+                canvas.drawPath(p, mPaint);
+            }
             currentAngle = currentAngle + currentSweep;
 
             count++;
